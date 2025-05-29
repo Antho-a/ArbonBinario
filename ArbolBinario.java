@@ -31,26 +31,27 @@ public class ArbolBinario {
       
   
   }
-  public void buscar(Nodo nodo , int buscar) {
+  public Nodo buscar(Nodo nodo , int buscar) {
     if ( nodo.GetDato() == buscar) {
-      
+      return nodo;
     }
    if(buscar <nodo.GetDato()) {
-      buscar(nodo.GetRamaIzqda(),buscar);
       System.out.println("Nodo visitado: " + nodo.GetDato());
+      return buscar(nodo.GetRamaIzqda(),buscar);
+      
     } else if (buscar > nodo.GetDato()) {
-      buscar(nodo.GetRamaDrc(), buscar);
-      System.out.println("Nodo visitado: " + nodo.GetDato()); 
+      System.out.println("Nodo visitado: " + nodo.GetDato());
+      return buscar(nodo.GetRamaDrc(), buscar);
     }
     
-      
+      return null;
   }  
   // Recorrido de un arbol binario en inorden
   public static void inorden(Nodo r) {
     if(r.GetRamaIzqda()!=null){
         inorden(r.GetRamaIzqda());
     }
-    System.out.println(r.GetDato());
+    System.out.println(r.GetDato()+"|");
     if(r.GetRamaDrc()!=null){
         inorden(r.GetRamaDrc());
     }
@@ -62,13 +63,11 @@ public class ArbolBinario {
   }
   // Recorrido de un árbol binario en postorden
   public static void postorden(Nodo r) {
-    if(r.GetRamaDrc==null&&r.GetRamaIzqda==null){
-      System.out.prinln(r.GetDato());
-      break;
-    }else if(r.GetRamaIzqda()!=null){
-      postorden(r.GetRamaIzqda);
-    }else if(r.GetRamaDrc()!=null){
-      postorden(r.GetRamaDrc);
+    if(r!=null){
+      postorden(r.GetRamaIzqda());
+      postorden(r.GetRamaDrc());
+      System.out.print(r.GetDato()+"|");
+     
     }
  }
 // Recorrido de un árbol binario en preorden
@@ -77,7 +76,7 @@ public class ArbolBinario {
         return;
     }
     else{
-        System.out.print(r.GetDato());
+        System.out.print(r.GetDato()+"|");
         PreOrden(r.GetRamaIzqda());
         PreOrden(r.GetRamaDrc());
         return;
@@ -85,4 +84,3 @@ public class ArbolBinario {
  }
 
 }
-

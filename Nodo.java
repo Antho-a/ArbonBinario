@@ -2,7 +2,9 @@ public class Nodo {
     private int dato;
     private Nodo ramaIzqda;
     private Nodo ramaDrc;
-
+public Nodo(){
+    
+}
     public Nodo(int valor){
         this.dato = valor;
         this.ramaIzqda = null;
