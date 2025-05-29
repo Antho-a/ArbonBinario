@@ -12,11 +12,11 @@ public class Main {
              arbolBinario.buscar(arbolBinario.raiz,15 );
              
              System.out.println("\npre orden");
-             ArbolBinario.PreOrden(arbolBinario.raizArbol());
+             ArbolBinario.PreOrden(arbolBinario.getraizArbol());
              System.out.println("\nin orden");
-            ArbolBinario.inorden(arbolBinario.raizArbol());
+            ArbolBinario.inorden(arbolBinario.getraizArbol());
              System.out.println("\npost orden");
-             ArbolBinario.postorden(arbolBinario.raizArbol());
+             ArbolBinario.postorden(arbolBinario.getraizArbol());
              } catch (Exception e) {
                  System.out.println(e.getMessage());
                 }

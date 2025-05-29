@@ -6,7 +6,7 @@ public class ArbolBinario {
   public void setArbolBinario(Nodo raiz) {
   this.raiz = raiz;
   }
-  public Nodo raizArbol() {
+  public Nodo getraizArbol() {
   return raiz;
   }
 
@@ -44,16 +44,8 @@ public class ArbolBinario {
     }
     
       
-  }
-
-  
- 
-
- 
-
-  
-  
-  // Recorrido de un árbol binario en inorden
+  }  
+  // Recorrido de un arbol binario en inorden
   public static void inorden(Nodo r) {
     if(r.GetRamaIzqda()!=null){
         inorden(r.GetRamaIzqda());
@@ -70,10 +62,13 @@ public class ArbolBinario {
   }
   // Recorrido de un árbol binario en postorden
   public static void postorden(Nodo r) {
-    if(r!=null){
-    postorden(r.GetRamaIzqda());
-    postorden(r.GetRamaDrc());
-    System.out.println(r.GetDato());
+    if(r.GetRamaDrc==null&&r.GetRamaIzqda==null){
+      System.out.prinln(r.GetDato());
+      break;
+    }else if(r.GetRamaIzqda()!=null){
+      postorden(r.GetRamaIzqda);
+    }else if(r.GetRamaDrc()!=null){
+      postorden(r.GetRamaDrc);
     }
  }
 // Recorrido de un árbol binario en preorden
